@@ -11,8 +11,8 @@ int echoPin  = D3;
 int minWater = 200;
 int reading;
 
-const char *ssid     = "www.amalshajan.me";
-const char *password = "amalshajan.me";
+const char *ssid     = "EvilCorp";
+const char *password = "helloworld";
 
 ESP8266WebServer server(80);
 
@@ -255,7 +255,7 @@ void handeleDrainOn() {
 }
 
 void handeleDrainOff() {
-	motorControl(drainPin, HIGH);
+	motorControl(drainPin, LOW);
 	server.send(200, "text/html", "Drain turned off");
 }
 
@@ -264,7 +264,7 @@ void handeleGetReading() {
 }
 
 void setupWiFi(){
-	Serial.print("Connecting to ");
+	Serial.print("\nConnecting to ");
 	Serial.println(ssid);
 	WiFi.begin(ssid, password);
 	while (WiFi.status() != WL_CONNECTED) {
